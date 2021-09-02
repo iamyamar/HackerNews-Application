@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Navb from "./Components/Navb";
+import Home from "./Components/Home";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import { Route, Switch } from "react-router-dom";
+import Hackerpage from "./Components/Hackerpage";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navb />
+
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="hackerpage/:id" component={Hackerpage} />
+      </Switch>
     </div>
   );
-}
+};
 
 export default App;
